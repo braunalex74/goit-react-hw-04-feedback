@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { SectionStyles } from './Section.styled';
+import { SectionStyles } from './Section.styled';
 
 export const Section = ({ title, children }) => {
   return (
-    <div>
+    <SectionStyles>
       <h2>{title}</h2>
       {children}
-    </div>
+    </SectionStyles>
   );
 };
 
