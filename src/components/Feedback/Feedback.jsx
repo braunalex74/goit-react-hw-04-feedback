@@ -35,13 +35,13 @@ export const Feedback = () => {
 
   return (
     <div>
-      <Section title="Leave feedback" styles={sectionStyles}>
+      <Section title="Leave feedback">
         <FeedbackOptions
           options={['good', 'neutral', 'bad']}
           onLeaveFeedback={onLeaveFeedback}
         />
       </Section>
-      <Section title="Statistics" styles={sectionStyles}>
+      <Section title="Statistics">
         {hasFeedback ? (
           <Statistics
             good={feedback.good}
