@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
-import { Statistics } from './Statistics/Statistics';
-import { Section } from './Section/Section';
-import { Notification } from './Notifications/Notifications';
+import FeedbackOptions from '../FeedbackOptions/FeedbackOptions';
+import Statistics from '../Statistics/Statistics';
+import Section from '../Section/Section';
+import Notification from '../Notifications/Notifications';
 
-export const App = () => {
+export const Feedback = () => {
   const [feedback, setFeedback] = useState({
     good: 0,
     neutral: 0,
@@ -35,13 +35,13 @@ export const App = () => {
 
   return (
     <div>
-      <Section title="Leave feedback">
+      <Section title="Leave feedback" styles={sectionStyles}>
         <FeedbackOptions
           options={['good', 'neutral', 'bad']}
           onLeaveFeedback={onLeaveFeedback}
         />
       </Section>
-      <Section title="Statistics">
+      <Section title="Statistics" styles={sectionStyles}>
         {hasFeedback ? (
           <Statistics
             good={feedback.good}
@@ -58,9 +58,9 @@ export const App = () => {
   );
 };
 
-App.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string),
-  onLeaveFeedback: PropTypes.func,
+FeedbackOptions.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
 };
 
-export default App;
+export default Feedback;
